@@ -21,7 +21,7 @@ font-size: 40px;
     }
 
     .container{
-        background-color: #ffe6e6;
+        background-color: #ff9999;
          width: 400px;
          display: block;
          margin: 0 auto;
@@ -31,7 +31,8 @@ font-size: 40px;
     }
 
     .inputbox{
-      
+      width: 90%;
+      display: block;
       margin: 20px auto;
       font-size: 25px;
       border: 1px solid black;
@@ -44,12 +45,13 @@ font-size: 40px;
     .btn{
         width: 150px;
         display: block;
-        margin: 70 auto;
+        margin: 10px auto;
         font-size: 25px;
-        border-radius: 5px;
+        border-radius: 10px;
         border: 1px solid black;
         background-color: white;
         padding: 5px 10px;
+        cursor: pointer;
     }
    
 </style>
@@ -62,12 +64,26 @@ font-size: 40px;
        
     </div>
    <div class="container">
-    <input placeholder="Enter Length" class="inputbox"/> 
-    <input placeholder="Enter Breadth" class="inputbox" /> 
+    <input placeholder="Enter Length" class="inputbox" id="length"/> 
+    <input placeholder="Enter Breadth" class="inputbox" id="breadth"/> 
    
-    <p class="answer"> Answer : </p>
-    <button class="btn"> Calculate</button>
+    <p class="answer" id="ans"> Answer : </p>
+    <button type="button" class="btn" onclick="calculate()"> 
+        Calculate</button>
    </div>
 
+
+   <script>
+    function calculate () {
+    const input1 = document.getElementById("length");
+      
+      const input2 = document.getElementById("breadth");
+
+    const area = parseInt(input1.value) * parseInt(input2.value);
+    const ansElement = document.getElementById("ans");
+    ansElement.innerText = `Answer : ${area}`
+    
+    }
+   </script>
 </body>
 </html>
